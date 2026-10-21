@@ -57,7 +57,7 @@ jobs:
           docker run --rm --entrypoint python \
             -v "$PWD/airflow/dags:/opt/airflow/dags:ro" de-airflow:ci -c "
           from airflow.models import DagBag
-          bag = DagBag('/opt/airflow/dags', include_examples=False)
+          bag = DagBag('/opt/airflow/dags')
           assert not bag.import_errors, bag.import_errors
           print('DAGs OK:', list(bag.dag_ids))
           "
