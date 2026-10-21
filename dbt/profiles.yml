@@ -1,0 +1,11 @@
+iot:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', '/opt/airflow/data/warehouse/iot.duckdb') }}"
+      threads: 2
+    ci:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', 'data/warehouse/ci.duckdb') }}"
+      threads: 2

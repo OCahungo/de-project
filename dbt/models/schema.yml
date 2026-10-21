@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_iot_readings
+    description: Cleaned, de-duplicated sensor readings (silver).
+    columns:
+      - name: sensor_id
+        data_tests: [not_null]
+      - name: event_ts
+        data_tests: [not_null]
+
+  - name: dim_sensors
+    description: One row per sensor (gold).
+    columns:
+      - name: sensor_id
+        data_tests: [unique, not_null]
+
+  - name: fct_sensor_readings_hourly
+    description: Hourly aggregates per sensor (gold).
+    columns:
+      - name: sensor_id
+        data_tests: [not_null]
+      - name: reading_hour
+        data_tests: [not_null]

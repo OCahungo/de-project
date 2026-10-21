@@ -1,0 +1,14 @@
+name: iot_analytics
+version: "0.1.0"
+config-version: 2
+profile: iot
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  iot_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
